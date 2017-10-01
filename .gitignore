@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+*.wav
+*.svg
+style-FINISHED.css
+index-FINISHED.html
+scripts-FINISHED.js
