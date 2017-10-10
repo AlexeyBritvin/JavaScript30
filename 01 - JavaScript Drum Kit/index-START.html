@@ -60,11 +60,15 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script>
-        const audio = Array.from(document.querySelectorAll('audio[data-key]'));
-        const keys = audio.map(key => parseFloat(key.dataset.key));
-        console.log(keys);
         window.addEventListener('keydown', event => {
-            keys.forEach(key => key === event.keyCode ? console.log('yes') : console.log('no'));
+            const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+            if (!audio) return;
+            audio.play();
+            key.classList.add('playing');
+            audio.addEventListener('ended', function () {
+                key.classList.remove('playing');
+            });
         });
 
     </script>
